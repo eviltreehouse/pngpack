@@ -1,6 +1,6 @@
 'use strict';
 const { existsSync, readdirSync, statSync } = require('fs');
-const { relative, resolve, sep } = require('path');
+const { relative, resolve } = require('path');
 const debug = require('debug')('pngpack');
 const Mapper = require('./lib/mapper');
 const Packager = require('./lib/packager');
