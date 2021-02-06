@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 'use strict';
 const { existsSync, readdirSync, statSync } = require('fs');
 const { relative, resolve } = require('path');
