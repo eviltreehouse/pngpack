@@ -3,7 +3,15 @@
 'use strict';
 const { existsSync, readdirSync, statSync } = require('fs');
 const { relative, resolve } = require('path');
+
+if ((typeof process.env['DEBUG'] === 'string') && Boolean(~process.env['DEBUG'].indexOf('pngpack'))) {
+	// increase the inspection visibility in debug mode
+	process.env['DEBUG_DEPTH'] = '6';
+	console.log
+}
+
 const debug = require('debug')('pngpack');
+
 const Mapper = require('./lib/mapper');
 const Packager = require('./lib/packager');
 

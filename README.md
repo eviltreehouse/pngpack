@@ -57,15 +57,32 @@ $ pngpack -b 32 ... # Work out fit in 32x32 blocks
 
 # You will have two output files, one if your merged 
 # texture, the other is the "atlas" which is simple 
-# JSON describing the x/y of the sub-textures.
+# JSON describing the offset and geometry of the sub-textures.
 $ ls | grep main
 main.png main.png.atlas
 $ cat main.png.atlas
 {
-	"assets/textures/sprites0.png": [0, 0],
-	"assets/textures/sprites1.png": [256, 0],
-	"assets/textures/logo.png": [256, 128],
-	...
+  "textures/tiles/hero-character.png": {
+    "offset": [
+      0,
+      0
+    ],
+    "size": [
+      64,
+      64
+    ]
+  },
+  "textures/ui/ui-icons.png": {
+    "offset": [
+      64,
+      0
+    ],
+    "size": [
+      32,
+      32
+    ]
+  },
+  ...
 }
 
 ```
@@ -81,12 +98,15 @@ $ cd assets && pngpack -f -o ../main.png ...
 ```
 
 ## Potential Future Features
-- Custom tagging instead of just the sub-texture filename.
-- Exclusion of files from an `-i <dir>` include.
 - Sub-atlas coordinates in the atlas (e.g. list the x/y for each specific cell within a spritesheet texture)
+- Exclusion of files from an `-i <dir>` include.
+- Custom tagging instead of just the sub-texture filename.
 
 
 ## Feature History
+
+**Version 0.3.0**
+- Updated atlas format to include the offset _and_ geometry of packaged textures. This should work as a prelimimary solution for dynamically calculating specific cell-by-cell offsets. 
 
 **Version 0.2.0**
 - Support for directory parsing with `"-i"`, and cleaner atlas spec.

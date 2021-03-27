@@ -1,1 +1,4 @@
 node_modules
+testing-assets/*.png
+final.png
+final.png.atlas
