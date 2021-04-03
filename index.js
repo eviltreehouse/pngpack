@@ -88,7 +88,7 @@ if (! defn) process.exit(1);
 debug('[.] Definition => %O', defn);
 
 packager.package(defn, outTextureFile, outAtlasFile).then((success) => {
-	process.exit(success ? 0 : 1);
+	process.exit(Number(!success));
 });
 
 function resolveIncludes(inf) {
