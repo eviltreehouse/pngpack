@@ -1,6 +1,6 @@
 {
   "name": "pngpack",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "pngpack: Lightweight PNG atlas packer",
   "main": "index.js",
   "bin": {
